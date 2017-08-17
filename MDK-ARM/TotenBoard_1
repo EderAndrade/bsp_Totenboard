@@ -1,0 +1,87 @@
+
+#ifndef __TOTENBOARD_H
+#define __TOTENBOARD_H
+
+#include "stm32f0xx_hal.h"
+#include "stm32f0xx_hal_gpio.h"
+
+/**
+  * @defines
+  */
+#define NUM_OBJS  	(unsigned char)5
+
+#define LED_BLUE 	(unsigned char)0
+#define LED_GREEN	(unsigned char)1
+#define USB		(unsigned char)2
+#define WiFi		(unsigned char)3
+#define BT		(unsigned char)4	
+
+
+/**
+  * @enum
+  */	
+
+
+ /**
+  * @FunctionPointer
+  */
+
+typedef void 			(*pFuncInitHW)		(void);
+typedef void 			(*pFuncSetPin)		(uint16_t Pin);
+typedef void 			(*pFuncResetPin)	(uint16_t Pin);
+typedef void 			(*pFuncTogglePin)	(uint16_t Pin);
+typedef GPIO_PinState 	(*pFuncReadPin)	(uint16_t Pin);
+
+
+
+/**
+  * @struct
+  */
+typedef struct
+{
+	pFuncSetPin	TotenSetPin;	
+	pFuncResetPin 	TotenResePin;	
+	pFuncTogglePin TotenTogglePin;
+	
+}Toten_GpioOutInit;
+
+
+
+typedef struct
+{	
+	pFuncReadPin	TotenReadPin;	
+		
+}Toten_GpioInInit;
+
+
+
+
+typedef struct
+{
+	pFuncInitHW 	TotenPeripInit;
+	
+}Toten_PeriphInit;
+
+
+
+
+/**
+  * @Prototypes
+  */
+GPIO_PinState 	ReadPin(uint16_t Pin);
+void TotenInitHWs	(void);
+void SetPin		(uint16_t Pin);
+void ResetPin		(uint16_t Pin);
+void TogglePin		(uint16_t Pin);
+
+
+
+/**
+  * @Extern
+  */
+extern Toten_GpioOutInit TotenObjs[NUM_OBJS];
+extern Toten_PeriphInit  TotenInitHW;
+
+
+#endif
+
