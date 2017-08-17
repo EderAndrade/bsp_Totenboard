@@ -9,11 +9,11 @@ This package has the following features:
 
 Support to:
 - LCD alphanumeric
-- Bluetooth (HC-05)
+- Bluetooth 
+- USB
 - ADC
 - LEDs of Discovery
 - User button
-- Communication with USB module.
 
 Soon I'll release another version with ESP8266 support.
 
