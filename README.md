@@ -3,7 +3,7 @@ Hello everyone.
 This is Eder.
 
 I made this BSP (Board Support Package) to use with Totenboard, the same board I released in this profile. But, don't worry
-if you don't have this one, you can use the package with Discovery to make yor own projects.
+if you don't have this one, you can use the package with Discovery to make your own projects.
 
 This package has the following features:
 
